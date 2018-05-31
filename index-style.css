@@ -1,0 +1,33 @@
+html {
+	margin: 3% 3% 3% 3%;
+}
+
+body {
+	background: white;
+	font: black;
+	font-size: 1.5em;
+	font-family: 'Cutive Mono', "Courier New", monospace;
+}
+
+h1 {
+	display: table;
+	font-size: 3.5em;
+	font-family: 'Arvo', "Courier New", monospace;
+	background: -webkit-linear-gradient(30deg, #1ce, #c0c0aa);  
+    background: -o-linear-gradient(30deg, #1ce, #c0c0aa);
+    background: -moz-linear-gradient(30deg, #1ce, #c0c0aa);
+    background: linear-gradient(30deg, #1ce, #c0c0aa);  
+	-webkit-background-clip: text; 
+	-webkit-text-fill-color: transparent;
+	-o-background-clip: text;
+	-o-text-fill-color: transparent;
+	-moz-background-clip: text;
+	-moz-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: black; 
+}
+
+p {
+	font-size: 2.5em;
+	font-family: 'Arvo', "Courier New", monospace;
+}
