@@ -13,21 +13,18 @@ h1 {
 	display: table;
 	font-size: 3.5em;
 	font-family: 'Arvo', "Courier New", monospace;
-	background: -webkit-linear-gradient(30deg, #1ce, #c0c0aa);  
-    background: -o-linear-gradient(30deg, #1ce, #c0c0aa);
-    background: -moz-linear-gradient(30deg, #1ce, #c0c0aa);
-    background: linear-gradient(30deg, #1ce, #c0c0aa);  
-	-webkit-background-clip: text; 
-	-webkit-text-fill-color: transparent;
-	-o-background-clip: text;
-	-o-text-fill-color: transparent;
-	-moz-background-clip: text;
-	-moz-text-fill-color: transparent;
-	background-clip: text;
-	text-fill-color: black; 
+	color: #1ce;
 }
 
 p {
 	font-size: 2.5em;
 	font-family: 'Arvo', "Courier New", monospace;
+}
+
+a {
+	color: #1ce;
+}
+
+a:visited {
+	color: #c0c0aa;
 }
