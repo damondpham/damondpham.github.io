@@ -12,7 +12,7 @@ Roswell: http://cdn1.theweek.co.uk/sites/theweek/files/2015/07/150708-roswell.jp
 Webpages:
 	https://en.wikipedia.org/wiki/Ufology
 	https://www.mufon.com/scientific-method.html
-	https://www.ozarkufoconference.com/
+	http://www.thelightside.org/PDFbooklet.pdf
 
 Marquee Text Scroll: https://pastebin.com/iDSgpJDy
 Cycling text: https://stackoverflow.com/questions/44169668/how-to-loop-changing-text-in-html-javascript
