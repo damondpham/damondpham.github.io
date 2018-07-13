@@ -1,0 +1,160 @@
+---
+title: "Get UFO Corpus"
+output:
+  html_document: default
+subtitle: Data cleaning
+---
+
+```{r setup, include=FALSE}
+
+# Loading packages elegantly.
+#SOURCE: https://stackoverflow.com/questions/4090169/elegant-way-to-check-for-missing-packages-and-install-them
+list.of.packages <- c("stringr", "knitr", "magrittr", "data.table", "kableExtra", "magrittr", 'ggplot2')
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+lapply(list.of.packages, require, character.only = TRUE)
+rm(list.of.packages, new.packages)
+
+opts_chunk$set(echo=TRUE,
+               cache=TRUE, autodep=TRUE,
+               message=FALSE, warning=FALSE)
+#===============================================================
+```
+
+## Reading in the data
+
+I began by attempting to read in the complete dataset.
+
+```{r}
+try(fread('data\\complete.csv'), outFile=stdout())
+```
+
+The above error explains that R had trouble reading line 878. I looked at this line and noticed it had an extra comma (the separating character), so I manually removed the extra comma. I tried again, but found the same problem in other rows as well. To solve this issue, I read each row as a single character string without separating it into columns. Then, I checked which rows have an unexpected number of commas, and what different numbers of commas existed.
+
+```{r}
+# "!" never appears in the file. So, use that as the `sep` parameter to ensure we get one column with all the row text.
+complete = fread('data\\complete.csv', sep='!', colClasses = 'character')
+header = unlist(colnames(complete))
+colnames(complete) = c('row_text')
+
+# How many rows have the wrong number of columns (i.e. wrong number of commas), and what wrong numbers exist?
+complete$comma_counts = sapply(regmatches(complete$row_text, gregexpr(",", complete$row_text)), length)
+table(complete$comma_counts)
+```
+
+All problematic rows have one extra comma. So I saved these rows to a new csv and re-read it, this time properly separating columns using commas. This allows me to identify the location of the extra column.
+
+```{r}
+#Identify problematic rows.
+complete$badrow = complete$comma_counts != 10
+badrow_indices = which(complete$badrow)
+
+#Convert the row text of the bad rows to a data.table with 12 columns. 
+badrows = complete[badrow==TRUE,'row_text']
+badrows = as.data.table(do.call(rbind, strsplit(badrows$row_text, split=',')))
+
+#Let's see what we get.
+kable_styling(kable(head(badrows), 'html'))
+```
+
+By inspection, I observed that the columns of these problematic rows are jumbled up, and an extra column is inserted. Thankfully, it is inserted in the same place across all the problematic rows. Therefore, I solved this issue by simply removing the extra column and re-ordering the correct columns.
+
+```{r}
+#Assign correct column names.
+colnames(badrows) = c('datetime', 'city', 'state', 'country','EXTRA COL','duration (seconds)','shape','duration (hours/min)','comments','date posted','latitude','longitude')
+
+#Remove the extra column and re-order the columns.
+badrows_fixed = badrows[,'EXTRA COL':=NULL]
+setcolorder(badrows_fixed, strsplit(header, split=',')[[1]])
+badrows_fixed = as.data.table(do.call(paste, c(badrows_fixed, sep=',')))
+
+#Replace the row texts for the bad rows with the corrected row texts.
+colnames(badrows_fixed) = 'row_text'
+complete_fixed = complete
+complete_fixed[badrow==TRUE, row_text := badrows_fixed$row_text]
+
+#Save the corrected row text to a new file.
+complete_fixed = data.table(complete_fixed[,row_text])
+colnames(complete_fixed) = header
+write.csv(complete_fixed, 'data\\complete_cleaned1.csv',row.names=FALSE, quote=FALSE)
+```
+
+After making this correction, I checked my work by viewing the previously-problematic rows.
+
+```{r}
+#Load the new file.
+complete_cleaned1 = fread('data\\complete_cleaned1.csv', colClasses='character')
+kable_styling(kable(head(complete_cleaned1[badrow_indices,]), 'html'))
+```
+
+Great.
+
+```{r}
+ufo = complete_cleaned1
+rm(badrows, badrows_fixed, complete, complete_cleaned1, complete_fixed, badrow_indices, header)
+```
+
+The hext step was to separate the NUFORC note from the comments. 
+
+```{r}
+has_NUFORC_note = grepl('\\(\\(', ufo$comments) & grepl('\\)\\)', ufo$comments)
+comments_with_NUFORC_note = ufo[has_NUFORC_note,]$comments
+NUFORC_note = strsplit(comments_with_NUFORC_note, split='\\(\\(')
+NUFORC_note = sapply(NUFORC_note, '[[', 2)
+NUFORC_note = strsplit(NUFORC_note, split='\\)\\)')
+NUFORC_note = sapply(NUFORC_note, '[[', 1)
+ufo$`NUFORC note` = ''
+ufo[has_NUFORC_note, 'NUFORC note'] = NUFORC_note
+
+ufo$`comments without NUFORC note` = ifelse(has_NUFORC_note, 
+                                            gsub('\\(\\(.*\\)\\)','',ufo$comments), 
+                                            ufo$comments)
+
+ufo$`NUFORC note` = gsub('NUFORC Note:','', ufo$`NUFORC note`)
+ufo$`NUFORC note` = gsub(' PD','', ufo$`NUFORC note`)
+ufo$`NUFORC note` = trimws(ufo$`NUFORC note`)
+ufo$`comments without NUFORC note` = trimws(ufo$`comments without NUFORC note`)
+ufo$`comments without NUFORC note` = ifelse(grepl('\\.$',ufo$`comments without NUFORC note`),
+                                            ufo$`comments without NUFORC note`,
+                                            paste0(ufo$`comments without NUFORC note`, '.'))
+```
+
+Finally, I saved the comments only to a text file.
+
+```{r}
+comments = ufo$`comments without NUFORC note`
+
+replace_ascii_and_unicode = function(text){
+  text = gsub('&#39', '\'', text)
+  text = gsub('&#44', ',', text) #<-- let's start using tab as delimiter, not comma.
+  text = gsub('&quot;', '\"', text)
+  text = gsub('&#33', '!', text)
+  text = gsub('&#8216;', '\'', text)
+  text = gsub('&#8217;', '\'', text)
+  text = gsub('&#8220;', '"', text)
+  text = gsub('&#8221;', '"', text)
+  text = gsub('&#8230;', '...', text)
+  text = gsub('&#9;', ' ', text) # &#9; is a tab: let's change this to a space
+  text = gsub('&#160;', ' ', text) # i think this is a space.
+  text = gsub('&#180;', '\'', text)
+  text = gsub('&#176;', ' degree', text) #degree sign
+  text = gsub('&#186;', ' degree', text) #degree sign
+  text = gsub('&#170;', ' degree', text) #degree sign
+  text = gsub('&#8211;', '-', text)
+  text = gsub('&#8212;', '-', text)
+  text = gsub('&#8226;', ' ', text) #bullet point
+  text = gsub('&#167;', ' ', text) #section symbol
+  text = gsub('&#8250;', ' ', text) #quotation mark that looks like >
+  text = gsub('&#188;', 'one fourth', text)
+  text = gsub('&#190;', 'three fourths', text)
+  text = gsub('&#182;', ' ', text) #paragraph symbol
+  text = gsub('&#382;', 'Z', text) #Z
+  text = gsub('&Atilde;&#161;', 'á', text) #this should be á 
+  return(text)
+}
+
+comments = replace_ascii_and_unicode(comments)
+
+comments = paste0(comments, collapse=' ')
+cat(comments, file='data\\ufo_comments.txt')
+```

@@ -1,0 +1,46 @@
+<!DOCTYPE html><head>
+<title></title>
+<link href="css/style1.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+</head>
+
+<div class="sightings" id="sightings-p1"></div>
+
+<video muted autoplay loop >
+  <source src="video/IMG_1878.MOV">
+</video>
+
+<script>    
+    var sightings = ['I OPENED IT FOR US AND WE STEPPED OUTSIDE.',
+    'I LOCKED THE DOOR.',
+    'WE WERE TRANSPORTED INTO THE UFO',
+    'BY LIGHT BEAM.',
+    'BELOW US WAS LAY THE BEAUTIFUL',
+    'DESERT LANDSCAPE OF NEW MEXICO.',
+    'I HAVE NOT LOOKED BACK SINCE.'];
+
+    var rep = 0;
+    textSequence(0);
+    
+    function textSequence(i) {
+        
+        //Show the story after all sightings have been shown.
+        if (i == 1) {
+            if (rep > 0) {
+                document.getElementsByClassName("story")[0].style.display = "inherit";
+            }
+        }
+        
+        //Cycle through the sightings.
+        if (sightings.length > i) {
+            setTimeout(function() {
+                document.getElementById("sightings-p1").innerHTML = sightings[i];
+                textSequence(++i);
+            }, 2800); //Time in milliseconds.
+
+        } else if (sightings.length == i) { 
+            rep += 1;
+        }
+
+    }
+</script>

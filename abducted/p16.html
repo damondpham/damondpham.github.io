@@ -1,0 +1,84 @@
+<!DOCTYPE html><head>
+<title></title>
+<link href="css/style2.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+</head>
+
+<body id="p10-body" background="images/desert1.png">
+
+<div class="story" id="p10-story"><textarea rows="2" cols="40">
+THAT WAS WHEN I SAW IT. IT WAS SITTING AT HER DESK FORMING A SPHERE WITH THE SPARKLY-GREY PUTTY. IT TURNED AROUND AND I KNEW IT WAS HER FROM ITS EYES. THERE WAS ELECTRICITY IN THE AIR. IT BECKONED FOR ME TO STEP OUTSIDE THE ROOM, AND EVENTUALLY IT LED ME TO</textarea></div>
+
+<div class="story" id="p10-story2">THE FRONT DOOR<a href="p17.html">.</a></div>
+</body>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.js"></script>
+<script>
+    (function($) {
+        $.fn.textWidth = function(){
+             var calc = '<span style="display:none">' + $(this).text() + '</span>';
+             $('body').append(calc);
+             var width = $('body').find('span:last').width();
+             $('body').find('span:last').remove();
+            return width;
+        };
+        
+        $.fn.marquee = function(args) {
+            var that = $(this);
+            var textWidth = that.textWidth(),
+                offset = that.width(),
+                width = offset,
+                css = {
+                    'text-indent' : that.css('text-indent'),
+                    'overflow' : that.css('overflow'),
+                    'white-space' : that.css('white-space')
+                },
+                marqueeCss = {
+                    'text-indent' : width,
+                    'overflow' : 'hidden',
+                    'white-space' : 'nowrap'
+                },
+                args = $.extend(true, { count: -1, speed: 1e-2, leftToRight: false }, args),
+                i = 0,
+                stop = textWidth*-1  - 100000,
+                dfd = $.Deferred();
+            
+            function go() {
+                if(!that.length) return dfd.reject();
+                if(width == stop) {
+                    i++;
+                    if(i == args.count) {
+                        that.css(css);
+                        return dfd.resolve();
+                    }
+                    if(args.leftToRight) {
+                        width = textWidth*-1;
+                    } else {
+                        width = offset;
+                    }
+                }
+                that.css('text-indent', width + 'px');
+                if(args.leftToRight) {
+                    width++;
+                } else {
+                    width--;
+                }
+                setTimeout(go, args.speed);
+            };
+            if(args.leftToRight) {
+                width = textWidth*-1;
+                width++;
+                stop = offset;
+            } else {
+                width--;            
+            }
+            that.css(marqueeCss);
+            go();
+            return dfd.promise();
+        };
+    })(jQuery);
+
+$('.sightings').marquee();
+$('.sightings').marquee();
+	
+</script>

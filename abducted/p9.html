@@ -1,0 +1,98 @@
+<!DOCTYPE html><head>
+<title></title>
+<link href="css/style2.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+</head>
+
+<div class="story" id="story-p8">It didn't happen like in the movies. no lights, silent, being followed by a formation, followed by a bigger and brighter than anything I've ever seen.... the next morning she was gone. How small I have felt since....<mark>When outside with our dog around 6:30 pm on 10/13, I and my 3 freinds, and seemed to have captured it whilst taking pictures of night view with my digital cam. of <a href="p10.html">a flowering plant</a> and when I put it on my back patio smoking when one of them darted quickly upward for 45 minutes to 1 hours, red and white flying in the sky.</mark>Intimidating Looking Red Disk lining the headboard of her bed, over the North Sea hovering in the sky in slow circles.. we lived in Villanueva, New Mexico, at a very high altitude, stationary and mobile behaviors.</div>
+
+<div class="sightings" id="sighting6">
+	Heard a instantaneous shock wave and looked outside to. a disk flew over my house. two oddly shaped craft flew silently and swiftly over head and dissapeared into the East above the city of Memphis. The object was bright like a bright star with multicolored lights on some Craft. 3/26/04 san jose, ca. wedge shaped light flying faster than an airplane....then vanishes. I was on my way to visit my wife's mother. a bright light. Heard a instantaneous shock wave and looked outside to. a disk flew over my house. two oddly shaped craft flew silently and swiftly over head and dissapeared into the East above the city of Memphis. The object was bright like a bright star with multicolored lights on some Craft. 3/26/04 san jose, ca. wedge shaped light flying faster than an airplane....then vanishes. I was on my way to visit my wife's mother. a bright light. Heard a instantaneous shock wave and looked outside to. a disk flew over my house. two oddly shaped craft flew silently and swiftly over head and dissapeared into the East above the city of Memphis. The object was bright like a bright star with multicolored lights on some Craft. 3/26/04 san jose, ca. wedge shaped light flying faster than an airplane....then vanishes. I was on my way to visit my wife's mother. a bright light.
+</div>
+
+<img src="images/flower.gif" alt="flower" class="collage-image" id="flower"/>
+
+<script language="javascript">
+
+		$('#img1').mouseover(
+		function(){ $(this).addClass('hover') }
+	)
+		
+        function MouseRollover(MyImage) {
+        MyImage.src = "images/roswell2.jpg";
+    }
+        function MouseOut(MyImage) {
+        MyImage.src = "images/desert3.png";
+    }
+</script>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.js"></script>
+<script>
+    (function($) {
+        $.fn.textWidth = function(){
+             var calc = '<span style="display:none">' + $(this).text() + '</span>';
+             $('body').append(calc);
+             var width = $('body').find('span:last').width();
+             $('body').find('span:last').remove();
+            return width;
+        };
+        
+        $.fn.marquee = function(args) {
+            var that = $(this);
+            var textWidth = that.textWidth(),
+                offset = that.width(),
+                width = offset,
+                css = {
+                    'text-indent' : that.css('text-indent'),
+                    'overflow' : that.css('overflow'),
+                    'white-space' : that.css('white-space')
+                },
+                marqueeCss = {
+                    'text-indent' : width,
+                    'overflow' : 'hidden',
+                    'white-space' : 'nowrap'
+                },
+                args = $.extend(true, { count: -1, speed: 1e-2, leftToRight: false }, args),
+                i = 0,
+                stop = textWidth*-1  - 100000,
+                dfd = $.Deferred();
+            
+            function go() {
+                if(!that.length) return dfd.reject();
+                if(width == stop) {
+                    i++;
+                    if(i == args.count) {
+                        that.css(css);
+                        return dfd.resolve();
+                    }
+                    if(args.leftToRight) {
+                        width = textWidth*-1;
+                    } else {
+                        width = offset;
+                    }
+                }
+                that.css('text-indent', width + 'px');
+                if(args.leftToRight) {
+                    width++;
+                } else {
+                    width--;
+                }
+                setTimeout(go, args.speed);
+            };
+            if(args.leftToRight) {
+                width = textWidth*-1;
+                width++;
+                stop = offset;
+            } else {
+                width--;            
+            }
+            that.css(marqueeCss);
+            go();
+            return dfd.promise();
+        };
+    })(jQuery);
+
+$('.sightings').marquee();
+$('.sightings').marquee();
+	
+</script>

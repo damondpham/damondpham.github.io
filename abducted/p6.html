@@ -1,0 +1,93 @@
+<!DOCTYPE html><head>
+<title></title>
+<link href="css/style2.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+</head>
+
+
+<div class="sightings" id="top-sighting">
+	My girlfriend and I were traveling south on I-15 to Utah County from Salt Lake county and to the ground. three orange lights in the front and back to one then sped off. A boomerang shape that disappeared in perfect succession leaving only the clear night sky me and my husband come outside to view something that my friends saw a ufo, no lie it was close. I saw a dark v cloud fly over my house 1 at a time, then took off faster than we could believe driving home on the exspressway route 84 we were east bound. Cylindrical luminescent craft seen hovering over houses, when persued it left at an unhuman rate of speed!. Dark Grey oval shaped object ,brilliant neon white w/one red light,slowly descending quite close to my apartment and noticing the sky had been clearing. i was walking a dog with my fiance and manager saw ufos. My girlfriend and I were traveling south on I-15 to Utah County from Salt Lake county and to the ground. three orange lights in the front and back to one then sped off. A boomerang shape that disappeared in perfect succession leaving only the clear night sky me and my husband come outside to view something that my friends saw a ufo, no lie it was close. I saw a dark v cloud fly over my house 1 at a time, then took off faster than we could believe driving home on the exspressway route 84 we were east bound. Cylindrical luminescent craft seen hovering over houses, when persued it left at an unhuman rate of speed!. Dark Grey oval shaped object ,brilliant neon white w/one red light,slowly descending quite close to my apartment and noticing the sky had been clearing. i was walking a dog with my fiance and manager saw ufos.
+</div>
+
+<div class="story">
+<p>
+<mark>This continued on even after I retired. By then I had quit partipating on the forums, but I still kept up my research. It stimulated my mind, which is healthy I suppose. The only problem was that the stories I read had begun drifting into memories of my own <a href="p7.html">life</a>.</mark>
+</p>
+<div>
+
+<div class="sightings" id="bottom-sighting">
+	My girlfriend and I were traveling south on I-15 to Utah County from Salt Lake county and to the ground. three orange lights in the front and back to one then sped off. A boomerang shape that disappeared in perfect succession leaving only the clear night sky me and my husband come outside to view something that my friends saw a ufo, no lie it was close. I saw a dark v cloud fly over my house 1 at a time, then took off faster than we could believe driving home on the exspressway route 84 we were east bound. Cylindrical luminescent craft seen hovering over houses, when persued it left at an unhuman rate of speed!. Dark Grey oval shaped object ,brilliant neon white w/one red light,slowly descending quite close to my apartment and noticing the sky had been clearing. i was walking a dog with my fiance and manager saw ufos.My girlfriend and I were traveling south on I-15 to Utah County from Salt Lake county and to the ground. three orange lights in the front and back to one then sped off. A boomerang shape that disappeared in perfect succession leaving only the clear night sky me and my husband come outside to view something that my friends saw a ufo, no lie it was close. I saw a dark v cloud fly over my house 1 at a time, then took off faster than we could believe driving home on the exspressway route 84 we were east bound. Cylindrical luminescent craft seen hovering over houses, when persued it left at an unhuman rate of speed!. Dark Grey oval shaped object ,brilliant neon white w/one red light,slowly descending quite close to my apartment and noticing the sky had been clearing. i was walking a dog with my fiance and manager saw ufos.
+</div>
+	
+<iframe src="http://www.mufon.com/scientific-method.html" class="site" id="site-1"></iframe>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.js"></script>
+<script>
+    (function($) {
+        $.fn.textWidth = function(){
+             var calc = '<span style="display:none">' + $(this).text() + '</span>';
+             $('body').append(calc);
+             var width = $('body').find('span:last').width();
+             $('body').find('span:last').remove();
+            return width;
+        };
+        
+        $.fn.marquee = function(args) {
+            var that = $(this);
+            var textWidth = that.textWidth(),
+                offset = that.width(),
+                width = offset,
+                css = {
+                    'text-indent' : that.css('text-indent'),
+                    'overflow' : that.css('overflow'),
+                    'white-space' : that.css('white-space')
+                },
+                marqueeCss = {
+                    'text-indent' : width,
+                    'overflow' : 'hidden',
+                    'white-space' : 'nowrap'
+                },
+                args = $.extend(true, { count: -1, speed: 1e-2, leftToRight: false }, args),
+                i = 0,
+                stop = textWidth*-1  - 100000,
+                dfd = $.Deferred();
+            
+            function go() {
+                if(!that.length) return dfd.reject();
+                if(width == stop) {
+                    i++;
+                    if(i == args.count) {
+                        that.css(css);
+                        return dfd.resolve();
+                    }
+                    if(args.leftToRight) {
+                        width = textWidth*-1;
+                    } else {
+                        width = offset;
+                    }
+                }
+                that.css('text-indent', width + 'px');
+                if(args.leftToRight) {
+                    width++;
+                } else {
+                    width--;
+                }
+                setTimeout(go, args.speed);
+            };
+            if(args.leftToRight) {
+                width = textWidth*-1;
+                width++;
+                stop = offset;
+            } else {
+                width--;            
+            }
+            that.css(marqueeCss);
+            go();
+            return dfd.promise();
+        };
+    })(jQuery);
+
+$('.sightings').marquee();
+$('.sightings').marquee();
+	
+</script>
