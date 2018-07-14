@@ -82,22 +82,28 @@
 
 #big-pic {
 	position: fixed;
-	height: 80%;
+	height: auto;
 	left: 20%;
-	top: 10%
+	top: 10%;
+	max-width: 60%;
+	max-height: 80%
 }
 
 #med-pic-1 {
 	position: fixed;
-	height: 60%;
-	left: 36%;
-	top: 10%
+	height: auto%;
+	left: 40%;
+	top: 10%;
+	max-width: 40%;
+	max-height: 60%
 }
 #med-pic-2 {
 	position: fixed;
-	height: 70%;
+	height: auto%;
 	left: 24%;
-	top: 20%
+	top: 20%;
+	max-width: 52%;
+	max-height: 70%
 }
 
 .story {
