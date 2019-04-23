@@ -1,30 +1,80 @@
 html {
-	margin: 3% 3% 3% 3%;
+	margin: 1% 2% 2% 2%; 
+	overflow-x: hidden;
 }
 
 body {
 	background: white;
 	font: black;
-	font-size: 1.5em;
-	font-family: 'Cutive Mono', "Courier New", monospace;
+	display: table;
+	font-size: 1.2em;
+	font-family: 'Open Sans', monospace;
+}
+
+.split {
+	position: absolute;
+}
+
+.left {
+}
+
+.right {
+	display: block;
+	margin: 4.4% 0% 0% 26%;
+	padding: 0% 1% 0% 0%;
+	line-height: 1.6em;
 }
 
 h1 {
-	display: table;
-	font-size: 3.5em;
-	font-family: 'Arvo', "Courier New", monospace;
-	color: #1ce;
+	font-weight: normal;
+	font-size: 1.2em;
+}
+
+h2 {
+	font-weight: normal;
+	font-size: 1em;
 }
 
 p {
-	font-size: 2.5em;
-	font-family: 'Arvo', "Courier New", monospace;
+	margin: 0% 0% 0% 0%;
+	padding: 0% 0% 0% 0%;
+}
+
+.corner {
+	font-size: 2em;
+}
+
+.barcode {
+	font-family: 'Libre Barcode 128 Text', monospace;
+	font-size: 1.4em;
+}
+
+input {
+	background:none!important;
+	color:inherit;
+	border:none; 
+	padding:0!important;
+	font: inherit;
+	color: #0000ff;
+	/*border-bottom:1px solid #00ffff; */
+	cursor: pointer;
+}
+
+input:focus {
+	outline: none;
+	color: #00ff00;
+}
+
+.toggles {
+	font-size: 1em;
 }
 
 a {
-	color: #1ce;
+	color: white;
+	background-color: #0000ff;
+	text-decoration: none;
 }
 
-a:visited {
-	color: #c0c0aa;
+a:hover {
+	background-color: #ff0000;
 }

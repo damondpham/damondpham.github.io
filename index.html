@@ -1,26 +1,151 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link href="https://fonts.googleapis.com/css?family=Arvo:700i" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+		<!-- <link href="https://fonts.googleapis.com/css?family=Arvo:700i" rel="stylesheet"> -->
 		<link rel="stylesheet" href="index-style.css">
-		<title>Damon Pham</title>
+		<title>💿 Damon</title>
 	</head>
 	<body>
-		<h1>Damon Pham</h1>
-		<p>
-			My portfolio: 
-			<a href="image/flowers-at-Las-Ventanas.png">Flowers at Las Ventanas Apartments (The Windows)</a>.
-			<a href="image/Origin-Story.png">Origin Story</a>.
-			<a href="abducted/p1.html">My Daughter Was Abducted by Aliens</a>.
-			<a href="image/easy-eight/index.html">easy eight</a>.
-			<a href="image/super-wedding.png">super wedding</a>.	
-			<a href="text/bean.html">The Bean</a>.
-			<a href="text/humphead-wrasse.html">Humphead Wrasse</a>.
-			<a href="image/Invasion.png">Invasion</a>.	
-			<a href="text/Aug-8.txt">August 8</a>.
-			<a href="video/manatees/index.html">manatees</a>.	
-			<a href="https://scholarworks.iu.edu/journals/index.php/iujur/article/view/23319">The Great Starlit Vault of Heaven</a>.
-		</p>
+
+		<div class='split left'>
+			<div class="corner">
+				<div id="Me">Damon Pham</div>
+			</div>
+
+			<div class='barcode'>
+				makes 
+				<span
+					class="txt-rotate"
+					data-period="3890"
+					data-rotate='[ 
+						"visions", "runes", "it all", "theories", "detritus", 
+						"information", "prayers", "maps", "simulations", "scripts"]'>
+				</span>
+				about
+				<span
+					class="txt-rotate"
+					data-period="2765"
+					data-rotate='[ "truth", "love", "death", "otherness", "data", "ethics"]'>
+				</span><br><br>
+			</div>
+
+			<div class='toggles'>
+				<input type="button" value=".nfo" title="Bio" onclick="showDiv('Bio')" /><br>
+				<input type="button" value=".exe" title="Projects" onclick="showDiv('Projects')" /><br>
+				<input type="button" value=".mp4" title="Videos" onclick="showDiv('Videos')" /><br>
+				<input type="button" value=".png" title="Images" onclick="showDiv('Images')" /><br>
+				<input type="button" value=".txt" title="Writing" onclick="showDiv('Writing')" /><br>
+			</div>
+		</div>
+
+		<div class='split right'>
+			<div id="Bio"  style="display:none;">
+				<br><br><br>
+				<p>Damon is a student of statistics and computer art at Indiana University Bloomington.</p>
+			</div>
+			<div id="Projects"  style="display:none;">
+				<br><br><br>
+				<p><a href="abducted/p1.html">My Daughter Was Abducted By Aliens</a></p>
+			</div>
+			<div id="Writing"  style="display:none;">
+				<br><br><br>
+				Paper:<br>
+				<a href="https://scholarworks.iu.edu/journals/index.php/iujur/article/view/23319">The Great Starlit Vault of Heaven</a><br>
+				<br>
+				Poetry:<br>
+				✨ adding poems soon...
+			</div>
+			<div id="Images"  style="display:none;">
+				<br><br><br>
+				<a href="png/flowers-at-Las-Ventanas-Apartments.png">Flowers at Las Ventanas Apartments</a><br>
+				<a href="png/Invasion.png">Invasion</a><br>
+				<a href="png/super-wedding.png">super wedding</a><br>
+				<a href="png/easy-eight/index.html">easy eight</a>
+			</div>
+			<div id="Videos"  style="display:none;">
+				<br><br><br>
+				✨ none yet...
+			</div>
+
+		</div>
 	</body>
 </html>
+
+<script type="text/javascript">
+	function showDiv(what) {
+		document.getElementById("Bio").style.display = "none";
+		document.getElementById("Projects").style.display = "none";
+		document.getElementById("Videos").style.display = "none";
+		document.getElementById("Writing").style.display = "none";
+		document.getElementById("Images").style.display = "none";
+
+		document.getElementById(what).style.display = "block";
+	}
+
+	function Display() {
+		document.getElementsByClassName('right').style.color = "blue";
+		document.getElementByID('nfo').style.color = "red";
+	}
+	
+	//Credit: https://codepen.io/CheeseTurtle/pen/jzdgI
+	//Thanks CheeseTurtle! :)
+	var TxtRotate = function(el, toRotate, period) {
+		this.toRotate = toRotate;
+		this.el = el;
+		this.loopNum = 0;
+		this.period = parseInt(period, 10) || 2000;
+		this.txt = this.toRotate[0]; // ''
+		this.tick();
+		this.isDeleting = false;
+	};
+
+	TxtRotate.prototype.tick = function() {
+		var i = this.loopNum % this.toRotate.length;
+		var fullTxt = this.toRotate[i];
+		if (this.isDeleting) {
+			this.txt = fullTxt.substring(0, this.txt.length - 1);
+		} else {
+			this.txt = fullTxt.substring(0, this.txt.length + 1);
+		}
+
+		this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+		var that = this;
+		var delta = 200 ; //- Math.random() * 100
+
+		//if (this.isDeleting) { delta /= 2; }
+
+		if (!this.isDeleting && this.txt === fullTxt) {
+			delta = this.period + Math.random() * 4000;
+			this.isDeleting = true;
+		} else if (this.txt === '') { //this.isDeleting && this.txt === ''
+			this.isDeleting = false;
+			this.loopNum++;
+			delta = 200;
+		}
+
+		setTimeout(function() {
+			that.tick();
+		}, delta);
+	};
+
+	window.onload = function() {
+		var elements = document.getElementsByClassName('txt-rotate');
+		for (var i=0; i<elements.length; i++) { 
+			//var j = (i + 1 + Math.floor(Math.random() * (elements.length -1))) % elements.length;
+		var toRotate = elements[i].getAttribute('data-rotate');
+		var period = elements[i].getAttribute('data-period');
+		if (toRotate) {
+			new TxtRotate(elements[i], JSON.parse(toRotate), period);
+		}
+		}
+		// INJECT CSS
+		var css = document.createElement("style");
+		css.type = "text/css";
+		//css.innerHTML = ".txt-rotate > .wrap { border-right: 0.01em solid #ffffff }";
+		document.body.appendChild(css);
+	};
+</script>
