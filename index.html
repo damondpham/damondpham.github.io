@@ -3,33 +3,48 @@
 	<head>
 		<link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-		<!-- <link href="https://fonts.googleapis.com/css?family=Arvo:700i" rel="stylesheet"> -->
-		<link rel="stylesheet" href="index-style.css">
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script src="scripts/lity/lity.js"></script>
+		<link rel="stylesheet" href="scripts/lity/lity.css">
+		<link rel="stylesheet" href="scripts/index-style.css">
 		<title>💿 Damon</title>
 	</head>
-	<body>
 
+   <style type="text/css">
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        #wrapper {
+            min-height: 100%; 
+        }
+    </style>
+
+	<body>
+		<div class='overlay'>
 		<div class='split left'>
 			<div class="corner">
 				<div id="Me">Damon Pham</div>
 			</div>
 
 			<div class='barcode'>
-				makes 
+				is 
 				<span
 					class="txt-rotate"
-					data-period="4000"
+					data-period="4800"
 					data-rotate='[ 
-						"things", "visions", "runes", "it all", "theories", "detritus", 
-						"information", "prayers", "maps", "simulations", "scripts"]'>
+						"all", "plotting", "ready for", "clearing", "calling on", "scripting", "always", "expanding", "poisoning",
+						"recording", "simulating", "in", "mapping", "praying for", "tempting", "not", "cheating", "visiting",
+						"believing", "for", "predicting", "trusting", "summoning", "compressing", "computing", "collecting"]'>
 				</span>
-				about
+				the
 				<span
 					class="txt-rotate"
-					data-period="2600"
+					data-period="3600"
 					data-rotate='[
-						"truth", "love", "death", "otherness", 
-						"data", "the psyche", "ethics", "science"]'>
+						"moment", "rage", "truth", "love", "end", "future", "margin", "senses", "mist", "memory",
+						"numbers", "psyche", "feeling", "opposition", "products", "traditions", "earth", "public"]'>
 				</span><br><br>
 			</div>
 
@@ -54,20 +69,20 @@
 			<div id="Writing"  style="display:none;">
 				<br><br><br>
 				<mark>Paper</mark><br>
-				<a href="https://scholarworks.iu.edu/journals/index.php/iujur/article/view/23319">The Great Starlit Vault of Heaven</a> explores the evolution of Walt Whitman's relationship with death through the trends in his poetic use of astronomical imagery.<br>
+				<a href="https://scholarworks.iu.edu/journals/index.php/iujur/article/view/23319">The Great Starlit Vault of Heaven</a> explores the evolution of Walt Whitman's relationship with death through trends in his poetic use of astronomical imagery.<br>
 				<br>
 				<mark>Poetry</mark><br>
-				<a href="txt/The-Bean.html">The Bean</a> is meditation on Chicago's <i>Cloud Gate</i>.
-				<a href="txt/The-Humphead-Wrasse.html">The Humphead Wrasse</a> is about a beautiful and endangered fish.
-				<a href="txt/Neopets.html">Neopets.com and a Trip to Fry's Electronics</a> is a memoir for my (un)dead Neopets.
-				<a href="txt/August-8.txt">August 8</a> is about an ultimate moment.
+				<a href="txt/The-Bean.html" data-lity>The Bean</a> is meditation on Chicago's <i>Cloud Gate</i>.
+				<a href="txt/The-Humphead-Wrasse.html" data-lity>The Humphead Wrasse</a> is about a beautiful and endangered fish.
+				<a href="txt/Neopets.html" data-lity>Neopets.com and a Trip to Fry's Electronics</a> is a memoir for my (un)dead Neopets.
+				<a href="txt/August-8.txt" data-lity>August 8</a> is about an ultimate moment.
 			</div>
 			<div id="Images"  style="display:none;">
 				<br><br><br>
-				<a href="png/flowers-at-Las-Ventanas-Apartments.png">Flowers at Las Ventanas Apartments</a> is for my grandmother.
-				<a href="png/Alien.png">Alien</a> is about the word "alien."
-				<a href="png/Super-Wedding.png">Super Wedding</a> is about marriage.
-				<a href="png/easy-eight/index.html">easy eight</a> is about a mysterious night.
+				<a href="png/flowers-at-Las-Ventanas-Apartments.png" data-lity>Flowers at Las Ventanas Apartments</a> is for my grandmother.
+				<a href="png/Alien.png" data-lity>Alien</a> is about the word "alien."
+				<a href="png/Super-Wedding.png" data-lity>Super Wedding</a> is about marriage.
+				<a href="png/easy-eight/index.html" data-lity>easy eight</a> is about a mysterious night.
 			</div>
 			<div id="Videos"  style="display:none;">
 				<br><br><br>
@@ -79,6 +94,7 @@
 </html>
 
 <script type="text/javascript">
+
 	function showDiv(what) {
 		document.getElementById("Bio").style.display = "none";
 		document.getElementById("Projects").style.display = "none";
@@ -94,9 +110,9 @@
 	var TxtRotate = function(el, toRotate, period) {
 		this.toRotate = toRotate;
 		this.el = el;
-		this.loopNum = 0;
+		this.loopNum = Math.round(Math.random() * this.toRotate.length);
 		this.period = parseInt(period, 10) || 2000;
-		this.txt = this.toRotate[0]; // ''
+		this.txt = this.toRotate[this.loopNum % this.toRotate.length];
 		this.tick();
 		this.isDeleting = false;
 	};
@@ -118,11 +134,11 @@
 		//if (this.isDeleting) { delta /= 2; }
 
 		if (!this.isDeleting && this.txt === fullTxt) {
-			delta = this.period + Math.random() * 4000;
+			delta = this.period + (Math.round(Math.random() * 14)) * 200;
 			this.isDeleting = true;
 		} else if (this.txt === '') { //this.isDeleting && this.txt === ''
 			this.isDeleting = false;
-			this.loopNum++;
+			this.loopNum = this.loopNum + 1 + Math.round(Math.random() * 2);
 			delta = 200;
 		}
 
@@ -135,11 +151,11 @@
 		var elements = document.getElementsByClassName('txt-rotate');
 		for (var i=0; i<elements.length; i++) { 
 			//var j = (i + 1 + Math.floor(Math.random() * (elements.length -1))) % elements.length;
-		var toRotate = elements[i].getAttribute('data-rotate');
-		var period = elements[i].getAttribute('data-period');
-		if (toRotate) {
-			new TxtRotate(elements[i], JSON.parse(toRotate), period);
-		}
+			var toRotate = elements[i].getAttribute('data-rotate');
+			var period = elements[i].getAttribute('data-period');
+			if (toRotate) {
+				new TxtRotate(elements[i], JSON.parse(toRotate), period);
+			}
 		}
 		// INJECT CSS
 		var css = document.createElement("style");
