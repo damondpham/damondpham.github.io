@@ -20,7 +20,6 @@
             min-height: 100%; 
         }
     </style>
-
 	<body>
 		<div class='overlay'>
 		<div class='split left'>
@@ -36,15 +35,16 @@
 					data-rotate='[ 
 						"all", "plotting", "ready for", "clearing", "calling on", "scripting", "always", "expanding", "poisoning",
 						"recording", "simulating", "in", "mapping", "praying for", "tempting", "not", "cheating", "visiting",
-						"believing", "for", "predicting", "trusting", "summoning", "compressing", "computing", "collecting"]'>
+						"believing", "for", "predicting", "trusting", "summoning", "compressing", "computing", "collecting",
+						"casting", "purchasing", "burying", "rescinding"]'>
 				</span>
 				the
 				<span
 					class="txt-rotate"
 					data-period="3600"
 					data-rotate='[
-						"moment", "rage", "truth", "love", "end", "future", "margin", "senses", "mist", "memory",
-						"numbers", "psyche", "feeling", "opposition", "products", "traditions", "earth", "public"]'>
+						"moment", "rage", "truth", "love", "end", "future", "margin", "senses", "mist", "memory", "knockoffs",
+						"numbers", "psyche", "feeling", "opposition", "products", "traditions", "earth", "public", "gems"]'>
 				</span><br><br>
 			</div>
 
@@ -69,17 +69,17 @@
 			<div id="Writing"  style="display:none;">
 				<br><br><br>
 				<mark>Paper</mark><br>
-				<a href="https://scholarworks.iu.edu/journals/index.php/iujur/article/view/23319">The Great Starlit Vault of Heaven</a> explores the evolution of Walt Whitman's relationship with death through trends in his poetic use of astronomical imagery.<br>
+				<a href="https://doi.org/10.14434/iujur.v3i1.23319" data-lity>The Great Starlit Vault of Heaven</a> explores the evolution of Walt Whitman's relationship with death through trends in his poetic use of astronomical imagery.<br>
 				<br>
 				<mark>Poetry</mark><br>
 				<a href="txt/The-Bean.html" data-lity>The Bean</a> is meditation on Chicago's <i>Cloud Gate</i>.
-				<a href="txt/The-Humphead-Wrasse.html" data-lity>The Humphead Wrasse</a> is about a beautiful and endangered fish.
+				<a href="txt/The-Humphead-Wrasse.html" data-lity>The Humphead Wrasse</a> is about an endangered fish.
 				<a href="txt/Neopets.html" data-lity>Neopets.com and a Trip to Fry's Electronics</a> is a memoir for my (un)dead Neopets.
 				<a href="txt/August-8.txt" data-lity>August 8</a> is about an ultimate moment.
 			</div>
 			<div id="Images"  style="display:none;">
 				<br><br><br>
-				<a href="png/flowers-at-Las-Ventanas-Apartments.png" data-lity>Flowers at Las Ventanas Apartments</a> is for my grandmother.
+				<a href="png/Flowers.png" data-lity>Flowers at Las Ventanas Apartments</a> is for my grandmother.
 				<a href="png/Alien.png" data-lity>Alien</a> is about the word "alien."
 				<a href="png/Super-Wedding.png" data-lity>Super Wedding</a> is about marriage.
 				<a href="png/easy-eight/index.html" data-lity>easy eight</a> is about a mysterious night.
@@ -88,12 +88,66 @@
 				<br><br><br>
 				✨ none yet...
 			</div>
-
 		</div>
+		<canvas id="scanner"></canvas>
 	</body>
 </html>
-
 <script type="text/javascript">
+
+	var c = document.getElementById('scanner');
+	var ctx = c.getContext("2d");
+	var x = Math.max(screen.width, $(document).width()) * 4;
+	var y = $(document).height();
+	c.width=x;
+	c.height=y;
+	ctx.lineWidth = 2;
+	ctx.strokeStyle = '#FF0000';
+
+	var yscan = [	y*1.2, y*1.4, y*1.7, y*1.9, y*2.1,
+					y*1.4, y*1.7, y*2, y*2.3, y*2.4,
+					y*1.1, y*1.9, y*2.1, y*2, y*3,
+					y*3.3, y*3.6, y*3.3, y*3.5, y*2.9];
+	var dscan = [	1/65, 1/75, 1/50, 1/80, 1/55,
+					1/58, 1/45, 1/60, 1/85, 1/40,
+					1/88, 1/78, 1/38, 1/48, 1/68,
+					1/40, 1/53, 1/63, 1/73, 1/83];
+
+	 var animate = function(dt) {
+	 	ctx.clearRect(0, 0, c.width, c.height);
+	 	for(i=0; i<yscan.length; i++){
+	 		yscan[i] = yscan[i] - dt*dscan[i];
+			ctx.beginPath();
+			ctx.moveTo(0, yscan[i]);
+			ctx.lineTo(x, yscan[i]);
+			ctx.stroke();
+			ctx.closePath();
+	 	};
+	 };
+
+	 var clean = function() {
+	 	for(i=0; i<yscan.length; i++){
+	 		if(yscan[i] < 0){
+	 			yscan[i] = y*1.8;
+	 		};
+	 	};
+	 };
+
+	 var movescan = function() {
+	   var t = Date.now();
+	   var dt = t - tm1;
+	   animate(dt);
+	   clean();
+	   tm1 = t;
+	   requestAnimationFrame(movescan);
+	 };
+
+	 requestAnimationFrame = window.requestAnimationFrame
+	               || window.webkitRequestAnimationFrame
+	               || window.msRequestAnimationFrame 
+	               || window.mozRequestAnimationFrame;
+
+	var tm1 = Date.now();
+	movescan();
 
 	function showDiv(what) {
 		document.getElementById("Bio").style.display = "none";
@@ -103,7 +157,7 @@
 		document.getElementById("Writing").style.display = "none";
 
 		document.getElementById(what).style.display = "block";
-	}
+	};
 	
 	//Credit: https://codepen.io/CheeseTurtle/pen/jzdgI
 	//Thanks CheeseTurtle! :)
