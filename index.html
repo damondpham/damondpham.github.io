@@ -17,7 +17,7 @@
         }
 
         #wrapper {
-            min-height: 100%; 
+            min-height: 100%;
         }
     </style>
 	<body>
@@ -28,11 +28,11 @@
 			</div>
 
 			<div class='barcode'>
-				is 
+				is
 				<span
 					class="txt-rotate"
 					data-period="4800"
-					data-rotate='[ 
+					data-rotate='[
 						"all", "plotting", "ready for", "clearing", "calling on", "scripting", "expanding", "poisoning",
 						"recording", "simulating", "in", "mapping", "praying for", "tempting", "transmuting", "cheating", "visiting",
 						"believing", "all about", "predicting", "trusting", "summoning", "compressing", "computing", "collecting",
@@ -87,7 +87,7 @@
 			</div>
 			<div id="Videos"  style="display:none;">
 				<br><br><br>
-				✨ none yet...
+				✨ <a href="mp4/stacks.html">stacks</a> is a work in progress.
 			</div>
 		</div>
 		<canvas id="scanner"></canvas>
@@ -146,7 +146,7 @@
 
 	 requestAnimationFrame = window.requestAnimationFrame
 	               || window.webkitRequestAnimationFrame
-	               || window.msRequestAnimationFrame 
+	               || window.msRequestAnimationFrame
 	               || window.mozRequestAnimationFrame;
 
 	var tm1 = Date.now();
@@ -161,7 +161,7 @@
 
 		document.getElementById(what).style.display = "block";
 	};
-	
+
 	//Credit: https://codepen.io/CheeseTurtle/pen/jzdgI
 	//Thanks CheeseTurtle! :)
 	var TxtRotate = function(el, toRotate, period) {
@@ -206,7 +206,7 @@
 
 	window.onload = function() {
 		var elements = document.getElementsByClassName('txt-rotate');
-		for (var i=0; i<elements.length; i++) { 
+		for (var i=0; i<elements.length; i++) {
 			//var j = (i + 1 + Math.floor(Math.random() * (elements.length -1))) % elements.length;
 			var toRotate = elements[i].getAttribute('data-rotate');
 			var period = elements[i].getAttribute('data-period');
