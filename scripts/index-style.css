@@ -15,6 +15,11 @@ body {
 	font-family: 'Open Sans', monospace;
 }
 
+::selection {
+	background: #00ff00;
+}
+
+
 #scanner {
 	top: 0;
     left: 0;
