@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="css/style1.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+</head>
+<body>
+
+<div class="sightings" id="sightings-p1"></div>
+
+<div class="story">
+<p>
+In my grief I ofen reminisced, and certain moments stuck with me in particular. There was the ski trip we took, back when I was still with Jonathan. She hated skiing but loved taking the ride up on the lift. I also found myself returning to a memory of us walking home from Target and seeing hundreds of birds migrating South. She just stared up at the sky, mouth agape, clutching a plastic bag of fruit snacks and Cliff <a href="p5.html">bars</a>. 
+</p>
+</div>
+
+<img src="images/skilift.gif" class="img_a" alt="ski lift"/>
+<img src="images/birds3.png" class="img_b" alt="birds"/>
+
+</body>
+</html>
+
+<script>	
+	var sightings = ['I WENT TO THE BACK YARD WITH THE DOG AND LOOKED AT THE PHOTOS MONTHS LATER.',
+					 'Two lines of 5 to 9 lights fly from the western horizon off coast of California, circle into one Fireball and vanish.',
+					 'I can only try and explain what we saw, On the beach at sunrise, my partner and I',
+					 'a large, round light, moving extremely slowly in broad daylight, posssibly pursued by military aircraft.',
+					 'We went out to put the horse in, and she saw a flash,',
+					 'Macedonian National television has shown a video material of the object',];
+
+	var rep = 0;
+	textSequence(0);
+	
+	function textSequence(i) {
+		
+		//Show the story after all sightings have been shown.
+		if (i == 1) {
+			if (rep > 0) {
+				document.getElementsByClassName("story")[0].style.display = "inherit";
+			}
+		}
+		
+		//Cycle through the sightings.
+		if (sightings.length > i) {
+			setTimeout(function() {
+				document.getElementById("sightings-p1").innerHTML = sightings[i];
+				textSequence(++i);
+			}, 3000); //Time in milliseconds.
+
+		} else if (sightings.length == i) { 
+			rep += 1;
+			textSequence(0);
+		}
+
+	}
+</script>

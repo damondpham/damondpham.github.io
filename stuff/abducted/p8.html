@@ -1,0 +1,101 @@
+<!DOCTYPE html><head>
+<title></title>
+<link href="css/style2.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+</head>
+
+
+<div class="sightings" id="sighting4">
+	Flashing, circular object at intense speed over streetway!. decending ball of bright light shining into house coming from the west heading out east with a zoom speed. I do not remember the exact date, but at about 20:30 I was driving down 40 on my way to visit my wife's mother. a bright light. My UFO skeptic Mom and level headed brother observed a very bright amber light eluminating out of a cloud seen midday morning in area of EPCOT, Florida.
+</div>
+
+<div class="sightings" id="sighting5">
+    There was the ski trip we took, back when I was still with Jonathan. She hated skiing but loved taking the ride up. I remember her legs swinging quickly, back and forth, dangling over the snow-capped evergreen trees. There was the ski trip we took, back when I was still with Jonathan. She hated skiing but loved taking the ride up. I remember her legs swinging quickly, back and forth, dangling over the snow-capped evergreen trees. There was the ski trip we took, back when I was still with Jonathan. She hated skiing but loved taking the ride up. I remember her legs swinging quickly, back and forth, dangling over the snow-capped evergreen trees. 
+</div>
+
+<a href="p9.html"><img src="images/desert3.png" alt="desrt" class="collage-image" id="img2" onMouseOver="MouseRollover(this)" onMouseOut="MouseOut(this)"/></a>
+
+<script language="javascript">
+
+		$('#img1').mouseover(
+		function(){ $(this).addClass('hover') }
+	)
+		
+        function MouseRollover(MyImage) {
+        MyImage.src = "images/roswell2.jpg";
+    }
+        function MouseOut(MyImage) {
+        MyImage.src = "images/desert3.png";
+    }
+</script>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.5.js"></script>
+<script>
+    (function($) {
+        $.fn.textWidth = function(){
+             var calc = '<span style="display:none">' + $(this).text() + '</span>';
+             $('body').append(calc);
+             var width = $('body').find('span:last').width();
+             $('body').find('span:last').remove();
+            return width;
+        };
+        
+        $.fn.marquee = function(args) {
+            var that = $(this);
+            var textWidth = that.textWidth(),
+                offset = that.width(),
+                width = offset,
+                css = {
+                    'text-indent' : that.css('text-indent'),
+                    'overflow' : that.css('overflow'),
+                    'white-space' : that.css('white-space')
+                },
+                marqueeCss = {
+                    'text-indent' : width,
+                    'overflow' : 'hidden',
+                    'white-space' : 'nowrap'
+                },
+                args = $.extend(true, { count: -1, speed: 1e-2, leftToRight: false }, args),
+                i = 0,
+                stop = textWidth*-1  - 100000,
+                dfd = $.Deferred();
+            
+            function go() {
+                if(!that.length) return dfd.reject();
+                if(width == stop) {
+                    i++;
+                    if(i == args.count) {
+                        that.css(css);
+                        return dfd.resolve();
+                    }
+                    if(args.leftToRight) {
+                        width = textWidth*-1;
+                    } else {
+                        width = offset;
+                    }
+                }
+                that.css('text-indent', width + 'px');
+                if(args.leftToRight) {
+                    width++;
+                } else {
+                    width--;
+                }
+                setTimeout(go, args.speed);
+            };
+            if(args.leftToRight) {
+                width = textWidth*-1;
+                width++;
+                stop = offset;
+            } else {
+                width--;            
+            }
+            that.css(marqueeCss);
+            go();
+            return dfd.promise();
+        };
+    })(jQuery);
+
+$('.sightings').marquee();
+$('.sightings').marquee();
+	
+</script>

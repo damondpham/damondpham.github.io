@@ -54,7 +54,7 @@
 
 			<div class='toggles'>
 				<input type="button" value=".nfo" title="Bio" onclick="showDiv('Bio')" /><br>
-				<input type="button" value=".tex" title="Data Science-related work" onclick="showDiv('DataSci')" /><br>
+				<input type="button" value=".tex" title="Scientific work" onclick="showDiv('Scientific')" /><br>
 				<input type="button" value=".mp4" title="Creative work" onclick="showDiv('Creative')" /><br>
 			</div>
 		</div>
@@ -62,20 +62,27 @@
 		<div class='split right'>
 			<div id="Bio"  style="display:none;">
 				<br><br><br>
-				<p><mark>Damon</mark> works with statistics, science, and digital media. He is a senior at Indiana University Bloomington.</p>
+				<p><mark>Damon</mark> works with statistics, science, and digital media.</p>
 			</div>
-			<div id="DataSci"  style="display:none;">
+			<div id="Scientific"  style="display:none;">
 				<br><br><br>
-        <p>Under construction!</p>
+				<p>Right now, I'm helping develop tools for <a target="_blank" rel="noopener noreferrer" href="https://github.com/mandymejia/clever">cleaning</a> and <a target="_blank" rel="noopener noreferrer" href="https://github.com/mandymejia/ciftiTools">visualizing</a> fMRI data.</p>
+				<br>
+				<p> <img src="stuff/ciftiToolsCollage.png" alt="WebGL renderings of right brain hemispheres from ciftiTools, and the subcortex" style="width:40%"> </p>
+				<br>
+				<p>In the past, I've been lucky to learn from:</p>
+				<p>- the Ma'ayan Lab (Mount Sinai, NYC) through the BD2K-LINCS DCIC program.</p>
+				<p>- the Ngo Lab (City of Hope, CA) through the Eugene and Ruth Roberts Summer Student Academy.</p>
 			</div>
       <div id="Creative"  style="display:none;">
 				<br><br><br>
-				<p>Under construction!</p><br>
-				<mark>Paper</mark><br>
 				<a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.14434/iujur.v3i1.23319">The Great Starlit Vault of Heaven</a> explores the paired evolution of Walt Whitman's relationship with death and his poetic use of astronomical imagery.<br>
 				<br>
-				<mark>Creative</mark><br>
-				<p>Under construction!</p><br>
+				<a target="_blank" rel="noopener noreferrer" href="stuff/abducted/p1.html">My Daughter was Abducted by Aliens</a> is about, well, just that.<br>
+				<br>
+				I collected some old poems and art in a <a target="_blank" rel="noopener noreferrer" href="stuff/GoodieBag.pdf">goodie bag</a> for you! :)<br>
+				<br>
+				More to come...<br>
 			</div>
 		</div>
 		<canvas id="scanner"></canvas>
@@ -142,7 +149,7 @@
 
 	function showDiv(what) {
 		document.getElementById("Bio").style.display = "none";
-		document.getElementById("DataSci").style.display = "none";
+		document.getElementById("Scientific").style.display = "none";
 		document.getElementById("Creative").style.display = "none";
 
 		document.getElementById(what).style.display = "block";

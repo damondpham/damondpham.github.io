@@ -1,0 +1,186 @@
+@font-face {
+	font-family: 'monospacemedium';
+	src: url('fonts/monospace.woff2') format('woff2'),
+		url('fonts/monospace.ttf') format('truetype'),
+		url('fonts/monospace.woff') format('woff');	
+}
+
+.sightings {
+	position: fixed;
+    width:50%;
+    height: 10%;
+	left: 25%;
+	
+	font-family: 'Shrikhand', cursive;
+	font-size: 1em;
+	color: black;
+	background-color: rgba(255, 255, 255, 0.7);
+	z-index: 2;
+}
+
+#top-sighting {top: 20%;}
+#bottom-sighting {top: 60%;}
+#sighting3 {
+	top:75%;
+	width:40%;
+	left:12%;
+	height:10%
+		
+}
+#sighting4 {
+	top:45%;
+	width:16%;
+	left:52%;
+	height:10%;
+	background-color: rgba(255, 255, 255, 0);
+}
+#sighting5 {
+	top:85%;
+	width:40%;
+	left:12%;
+	height:10%;
+}
+#sighting6 {
+	top:75%;
+	width:25%;
+	left:50%;
+	height:10%;
+}
+#sighting7 {
+	top:62%;
+	width:48%;
+	left:47%;
+	height: 4%;
+}
+#sighting8 {
+	top:42%;
+	width:32%;
+	left:7%;
+	height:32%;
+	font-size: 1em;
+}
+
+.site {
+	opacity: 50%;
+	z-index: -1;
+}
+#site-1 {
+	position: fixed;
+	width: 80%;
+	height: 80%;
+	left: 10%;
+	top: 10%
+}
+
+#site-2 {
+	position: fixed;
+	width: 40%;
+	height: 50%;
+	left: 2%;
+	top: 30%
+}
+
+#big-pic {
+	position: fixed;
+	height: auto;
+	left: 20%;
+	top: 10%;
+	max-width: 60%;
+	max-height: 80%
+}
+
+#med-pic-1 {
+	position: fixed;
+	height: auto%;
+	left: 40%;
+	top: 10%;
+	max-width: 40%;
+	max-height: 60%
+}
+#med-pic-2 {
+	position: fixed;
+	height: auto%;
+	left: 24%;
+	top: 20%;
+	max-width: 52%;
+	max-height: 70%
+}
+
+.story {
+	position: fixed;
+    width:50%;
+    height: 30%;
+	top: 30%;
+	left: 25%;
+	
+	font-family: monospacemedium;
+	font-size: 1em;
+	color: black;
+	background-color: rgba(255, 255, 255, 0.7);
+	z-index: 1;
+}
+#story-p8 {
+	top: 10%;
+	left: 45%;
+}
+
+#story-p80 {
+	top: 10%;
+	left: 45%;
+	background-color: rgba(255, 255, 255, 0);
+}
+
+#story-p81 {
+	top: 30%;
+	left: 14%;
+	background-color: rgba(255, 255, 255, 0);
+}
+
+#story-p82 {
+	top: 65%;
+	left: 60%;
+	background-color: rgba(255, 255, 255, 0);
+}
+#story-p9 {
+	top: 12%;
+	left: 5%;
+	background-color: rgba(255, 255, 255, 0);
+}
+#p10-story {
+	background-color: rgba(255, 255, 255, 0);
+}
+#p10-story2 {
+	top: 65%;
+	left: 40%;
+	width: 40%;
+
+	font-family: 'Shrikhand', cursive;
+	font-size: 3em;
+	overflow: hidden;
+}
+
+#big-pic {
+	position: fixed;
+	width: ;
+}
+
+.collage-image {
+	position: fixed;
+	width: 20%;
+	left: 60%;
+	top: 10%;
+}
+#img2 {
+	left: 20%;
+}
+#flower {
+	left: 5%;
+	top:40%;
+}
+
+#flower2 {
+	left: 77%;
+	top: 13%;
+	height: 70%;
+	width: auto;
+}
