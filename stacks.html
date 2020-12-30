@@ -8,35 +8,108 @@
 		<title>stacks</title>
 	</head>
 
-  <style type="text/css">
+	<style type="text/css">
+	
+		@font-face {
+			font-family: 'unifont';
+			src: url('stuff/unifont.ttf');
+		}
+
 		html, body {
-			margin: 1em 1em 1em 1em;
+			margin: .5em .5em .5em .5em;
 			text-align: left;
 			font-size: 1.5em;
 			font-family: monospace;
 		}
-		.hover_img a { position:relative; }
-		.hover_img a span { position:absolute; display:none; z-index:99; }
-		.hover_img a:hover span { display:block; }
+
+		.box {
+			display: flex;
+		}
+		.column {
+			float: left;
+		}
+		#toggles {
+			width: 15%;
+		}
+
+		img {
+			max-height: 30%;
+		}
+
+		input {
+			font: inherit;
+			font-family: unifont;
+			background:none!important;
+			color:inherit;
+			border:none; 
+			padding:0!important;
+			color: black;
+			/*border-bottom:1px solid #00ffff; */
+			cursor: pointer;
+		}
+
     </style>
 	<body>
-		<div class="hover_img">
-			<a href='https://youtu.be/ok1frgmsMhs'>00<span><img src="stuff/stacks_globes/0.png" alt="00"/></span></a>
-			<a href='https://youtu.be/r3udate06Qw'>01<span><img src="stuff/stacks_globes/1.png" alt="01"/></span></a>
-			<a href='https://youtu.be/mDhkmP95sWY'>02<span><img src="stuff/stacks_globes/2.png" alt="02"/></span></a>
-			<a href='https://youtu.be/5c6m87lppH8'>03<span><img src="stuff/stacks_globes/3.png" alt="03"/></span></a>
-			<a href='https://youtu.be/Nc24d-ai5AY'>04<span><img src="stuff/stacks_globes/4.png" alt="04"/></span></a>
-			<a href='https://youtu.be/zgjIFEJX7ck'>05<span><img src="stuff/stacks_globes/5.png" alt="05"/></span></a>
-			<a href='https://youtu.be/hARC7-PaID8'>06<span><img src="stuff/stacks_globes/6.png" alt="06"/></span></a>
-			<a href='https://youtu.be/wwUMRCENqt0'>07<span><img src="stuff/stacks_globes/7.png" alt="07"/></span></a>
-			<a href='https://youtu.be/0g4Ttsef0GI'>08<span><img src="stuff/stacks_globes/8.png" alt="08"/></span></a>
-			<a href='https://youtu.be/CbnPfWEPMe4'>09<span><img src="stuff/stacks_globes/9.png" alt="09"/></span></a>
-			<a href='https://youtu.be/bqoxa0F9Orc'>0A<span><img src="stuff/stacks_globes/A.png" alt="0A"/></span></a>
-			<a href='https://youtu.be/AyITg_hyMeQ'>0B<span><img src="stuff/stacks_globes/B.png" alt="0B"/></span></a>
-			<a href='https://youtu.be/ByMbeCuvaTM'>0C<span><img src="stuff/stacks_globes/C.png" alt="0C"/></span></a>
-			<a href='https://youtu.be/6M-3aJ-QdwA'>0D<span><img src="stuff/stacks_globes/D.png" alt="0D"/></span></a>
-			<a href='https://youtu.be/Sa6eRak4nVg'>0E<span><img src="stuff/stacks_globes/E.png" alt="0E"/></span></a>
-			<a href='https://youtu.be/b8xtxJPfs9o'>0F<span><img src="stuff/stacks_globes/F.png" alt="0F"/></span></a>
+
+		<div class="box">
+			<div id="toggles" class="column">
+				<input type="button" value="00" title="00" onclick="showDiv('stacks_00')" /><br>
+				<input type="button" value="01" title="01" onclick="showDiv('stacks_01')" /><br>
+				<input type="button" value="02" title="02" onclick="showDiv('stacks_02')" /><br>
+				<input type="button" value="03" title="03" onclick="showDiv('stacks_03')" /><br>
+				<input type="button" value="04" title="04" onclick="showDiv('stacks_04')" /><br>
+				<input type="button" value="05" title="05" onclick="showDiv('stacks_05')" /><br>
+				<input type="button" value="06" title="06" onclick="showDiv('stacks_06')" /><br>
+				<input type="button" value="07" title="07" onclick="showDiv('stacks_07')" /><br>
+				<input type="button" value="08" title="08" onclick="showDiv('stacks_08')" /><br>
+				<input type="button" value="09" title="09" onclick="showDiv('stacks_09')" /><br>
+				<input type="button" value="0A" title="0A" onclick="showDiv('stacks_0A')" /><br>
+				<input type="button" value="0B" title="0B" onclick="showDiv('stacks_0B')" /><br>
+				<input type="button" value="0C" title="0C" onclick="showDiv('stacks_0C')" /><br>
+				<input type="button" value="0D" title="0D" onclick="showDiv('stacks_0D')" /><br>
+				<input type="button" value="0E" title="0E" onclick="showDiv('stacks_0E')" /><br>
+				<input type="button" value="0F" title="0F" onclick="showDiv('stacks_0F')" /><br>
+			</div>
+		<div id="globes" class="column">
+			<div id="stacks_00" style="display:none;"><a href='https://youtu.be/ok1frgmsMhs'><img class="globes" src="stuff/stacks_globes/0.png" alt="00"/></a></div>
+			<div id="stacks_01" style="display:none;"><a href='https://youtu.be/r3udate06Qw'><img class="globes" src="stuff/stacks_globes/1.png" alt="01"/></a></div>
+			<div id="stacks_02" style="display:none;"><a href='https://youtu.be/mDhkmP95sWY'><img class="globes" src="stuff/stacks_globes/2.png" alt="02"/></a></div>
+			<div id="stacks_03" style="display:none;"><a href='https://youtu.be/5c6m87lppH8'><img class="globes" src="stuff/stacks_globes/3.png" alt="03"/></a></div>
+			<div id="stacks_04" style="display:none;"><a href='https://youtu.be/Nc24d-ai5AY'><img class="globes" src="stuff/stacks_globes/4.png" alt="04"/></a></div>
+			<div id="stacks_05" style="display:none;"><a href='https://youtu.be/zgjIFEJX7ck'><img class="globes" src="stuff/stacks_globes/5.png" alt="05"/></a></div>
+			<div id="stacks_06" style="display:none;"><a href='https://youtu.be/hARC7-PaID8'><img class="globes" src="stuff/stacks_globes/6.png" alt="06"/></a></div>
+			<div id="stacks_07" style="display:none;"><a href='https://youtu.be/wwUMRCENqt0'><img class="globes" src="stuff/stacks_globes/7.png" alt="07"/></a></div>
+			<div id="stacks_08" style="display:none;"><a href='https://youtu.be/0g4Ttsef0GI'><img class="globes" src="stuff/stacks_globes/8.png" alt="08"/></a></div>
+			<div id="stacks_09" style="display:none;"><a href='https://youtu.be/CbnPfWEPMe4'><img class="globes" src="stuff/stacks_globes/9.png" alt="09"/></a></div>
+			<div id="stacks_0A" style="display:none;"><a href='https://youtu.be/bqoxa0F9Orc'><img class="globes" src="stuff/stacks_globes/A.png" alt="0A"/></a></div>
+			<div id="stacks_0B" style="display:none;"><a href='https://youtu.be/AyITg_hyMeQ'><img class="globes" src="stuff/stacks_globes/B.png" alt="0B"/></a></div>
+			<div id="stacks_0C" style="display:none;"><a href='https://youtu.be/ByMbeCuvaTM'><img class="globes" src="stuff/stacks_globes/C.png" alt="0C"/></a></div>
+			<div id="stacks_0D" style="display:none;"><a href='https://youtu.be/6M-3aJ-QdwA'><img class="globes" src="stuff/stacks_globes/D.png" alt="0D"/></a></div>
+			<div id="stacks_0E" style="display:none;"><a href='https://youtu.be/Sa6eRak4nVg'><img class="globes" src="stuff/stacks_globes/E.png" alt="0E"/></a></div>
+			<div id="stacks_0F" style="display:none;"><a href='https://youtu.be/b8xtxJPfs9o'><img class="globes" src="stuff/stacks_globes/F.png" alt="0F"/></a></div>
 		</div>
 	</body>
 </html>
+
+<script type="text/javascript">
+	function showDiv(what) {
+		document.getElementById("stacks_00").style.display = "none";
+		document.getElementById("stacks_01").style.display = "none";
+		document.getElementById("stacks_02").style.display = "none";
+		document.getElementById("stacks_03").style.display = "none";
+		document.getElementById("stacks_04").style.display = "none";
+		document.getElementById("stacks_05").style.display = "none";
+		document.getElementById("stacks_06").style.display = "none";
+		document.getElementById("stacks_07").style.display = "none";
+		document.getElementById("stacks_08").style.display = "none";
+		document.getElementById("stacks_09").style.display = "none";
+		document.getElementById("stacks_0A").style.display = "none";
+		document.getElementById("stacks_0B").style.display = "none";
+		document.getElementById("stacks_0C").style.display = "none";
+		document.getElementById("stacks_0D").style.display = "none";
+		document.getElementById("stacks_0E").style.display = "none";
+		document.getElementById("stacks_0F").style.display = "none";
+
+		document.getElementById(what).style.display = "block";
+	};
+</script>
