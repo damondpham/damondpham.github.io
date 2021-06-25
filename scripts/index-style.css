@@ -16,7 +16,7 @@ body {
 }
 
 ::selection {
-	background: #00ff00;
+	background: #22a975;
 }
 
 
@@ -66,14 +66,14 @@ input {
 	border:none; 
 	padding:0!important;
 	font: inherit;
-	color: #0000ff;
+	color: #152fac;
 	/*border-bottom:1px solid #00ffff; */
 	cursor: crosshair;
 }
 
 input:focus {
 	outline: none;
-	color: #00ff00;
+	color: #429c15;
 }
 
 .toggles {
@@ -82,12 +82,12 @@ input:focus {
 
 a {
 	color: white;
-	background-color: #0000ff;
+	background-color: #152fac;
 	text-decoration: none;
 }
 
 a:hover {
-	background-color: #ff0000;
+	background-color: #dfa8e6;
 	cursor: crosshair;
 }
 
