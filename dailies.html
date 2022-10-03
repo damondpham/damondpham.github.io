@@ -15,23 +15,45 @@
 	<style type="text/css">
 		html, body {
 			height: 100%;
-			margin: 2em;
+			margin: 2vw;
+		}
+
+		.headerText {
+			padding-right: 2vw;
 		}
 
 		.objkt {
-			min-width: 40vw;
-			height: 40vw;
+			width: max(15em, 40vw);
+			height: max(15em, 40vw);
+		}
+
+		.row {
+			width: 96vw;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(max(360px,45vw), 1fr));
+			grid-gap: 1vw;
 		}
 
 	</style>
 	<body>
-		<p><mark>Dailies</mark></p> <br>
-		<p>- a series of digital images that change over time, each at its own pace</p>
-		<p>- something between an advent calendar, sundial, Dorian Gray's portrait, almanac, or a very very very slow GIF</p>
-		<p>- honoring long-term thinking & renewability over excess & spam</p>
-		<p>- around one per year is created</p> <br><br>
+		<div class="headerText">
+			<p><mark>Dailies</mark></p> <br>
+			<p>- a series of digital images that change over time, each at its own pace</p>
+			<p>- something between an advent calendar, sundial, Dorian Gray's portrait, almanac, or a very very very slow GIF</p>
+			<p>- honoring long-term thinking & renewability over excess & spam</p>
+			<p>- around one per year is created</p> 
+			<br><br>
+		</div>
 
-		<p>1. <a href="https://www.hicetnunc.xyz/objkt/108387">The Gardener</a></p><br>
-		<iframe class="objkt" src="https://cloudflare-ipfs.com/ipfs/QmPVaQ4mknCeiagdb3n9TCYj9o4R9neMywuUufMsShC17b"></iframe>
-	</body>
+		<div class="row">
+			<span class="column">
+				<p>1. <a href="https://ipfs.io/ipfs/QmPVaQ4mknCeiagdb3n9TCYj9o4R9neMywuUufMsShC17b">The Gardener</a></p><br>
+				<iframe class="objkt" src="https://cloudflare-ipfs.com/ipfs/QmPVaQ4mknCeiagdb3n9TCYj9o4R9neMywuUufMsShC17b"></iframe>		
+			</span>
+			<span class="column">
+				<p>2. <a href="https://ipfs.io/ipfs/QmUr44ZDuaedx6Ak7mV4cFPUJTcDmP7L5s4BYoTuvXRGTE">The Fishery</a></p><br>
+				<iframe class="objkt" src="https://cloudflare-ipfs.com/ipfs/QmUr44ZDuaedx6Ak7mV4cFPUJTcDmP7L5s4BYoTuvXRGTE"></iframe>	
+			</span>
+		</div> 
+</body>
 </html>
