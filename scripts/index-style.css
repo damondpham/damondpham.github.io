@@ -19,7 +19,6 @@ body {
 	background: #22a975;
 }
 
-
 #scanner {
 	top: 0;
     left: 0;
@@ -47,8 +46,9 @@ body {
 }
 
 p {
+	padding-left: 3em;
+	text-indent: -1.5em;
 	margin: 0% 0% 0% 0%;
-	padding: 0% 0% 0% 0%;
 }
 
 .corner {
@@ -73,7 +73,7 @@ input {
 
 input:focus {
 	outline: none;
-	color: #429c15;
+	color: #3c6d24;
 }
 
 .toggles {
