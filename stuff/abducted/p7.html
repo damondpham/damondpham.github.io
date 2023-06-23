@@ -1,7 +1,9 @@
 <!DOCTYPE html><head>
 <title></title>
 <link href="css/style2.css" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Cutive+Mono&family=Shrikhand&display=swap" rel="stylesheet"> 
 </head>
 
 
@@ -12,12 +14,7 @@
 <a href="p8.html"><img src="images/birds2.png" alt="birds" class="collage-image" id="img1" onMouseOver="MouseRollover(this)" onMouseOut="MouseOut(this)"/></a>
 
 <script language="javascript">
-
-		$('#img1').mouseover(
-		function(){ $(this).addClass('hover') }
-	)
-		
-        function MouseRollover(MyImage) {
+    function MouseRollover(MyImage) {
         MyImage.src = "images/birds1.png";
     }
         function MouseOut(MyImage) {
