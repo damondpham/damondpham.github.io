@@ -65,6 +65,36 @@
 	100% { opacity: .5; }
 }
 
+@keyframes blueIn {
+  0% { border: 0.5em solid #0000ff00; pointer-events: none; }
+	35% { border: 0.5em solid #0000ff00; }
+	100% { border: 0.5em solid #0000ffaa; pointer-events: auto;}
+}
+
+@-moz-keyframes blueIn {
+  0% { border: 0.5em solid #0000ff00; pointer-events: none; }
+	35% { border: 0.5em solid #0000ff00; }
+	100% { border: 0.5em solid #0000ffaa; pointer-events: auto;}
+}
+
+@-webkit-keyframes blueIn {
+  0% { border: 0.5em solid #0000ff00; pointer-events: none; }
+	35% { border: 0.5em solid #0000ff00; }
+	100% { border: 0.5em solid #0000ffaa; pointer-events: auto;}
+}
+
+@-o-keyframes blueIn {
+  0% { border: 0.5em solid #0000ff00; pointer-events: none; }
+	35% { border: 0.5em solid #0000ff00; }
+	100% { border: 0.5em solid #0000ffaa; pointer-events: auto;}
+}
+
+@-ms-keyframes blueIn {
+  0% { border: 0.5em solid #0000ff00; pointer-events: none; }
+	35% { border: 0.5em solid #0000ff00; }
+	100% { border: 0.5em solid #0000ffaa; pointer-events: auto;}
+}
+
 .sightings {
 	position: fixed;
     width:50%;
@@ -153,11 +183,11 @@
 	top: 10%;
 	max-width: 60%;
 	max-height: 80%
-  animation: fadeIn 18s;
-  -webkit-animation: fadeIn 18s;
-  -moz-animation: fadeIn 18s;
-  -o-animation: fadeIn 18s;
-  -ms-animation: fadeIn 18s;
+  animation: blueIn 27s;
+  -webkit-animation: blueIn 27s;
+  -moz-animation: blueIn 27s;
+  -o-animation: blueIn 27s;
+  -ms-animation: blueIn 27s;
 }
 
 #med-pic-1 {
@@ -180,11 +210,11 @@
 	top: 20%;
 	max-width: 52%;
 	max-height: 70%
-  animation: fadeIn 18s;
-  -webkit-animation: fadeIn 18s;
-  -moz-animation: fadeIn 18s;
-  -o-animation: fadeIn 18s;
-  -ms-animation: fadeIn 18s;
+  animation: blueIn 27s;
+  -webkit-animation: blueIn 27s;
+  -moz-animation: blueIn 27s;
+  -o-animation: blueIn 27s;
+  -ms-animation: blueIn 27s;
 }
 
 .story {
@@ -247,12 +277,12 @@
 
 #big-pic {
 	position: fixed;
-	width: 30%;
-  animation: fadeIn 18s;
-  -webkit-animation: fadeIn 18s;
-  -moz-animation: fadeIn 18s;
-  -o-animation: fadeIn 18s;
-  -ms-animation: fadeIn 18s;
+	width: 60%;
+  animation: fadeIn 18s, blueIn 27s;
+  -webkit-animation: fadeIn 18s, blueIn 27s;
+  -moz-animation: fadeIn 18s, blueIn 27s;
+  -o-animation: fadeIn 18s, blueIn 27s;
+  -ms-animation: fadeIn 18s, blueIn 27s;
 }
 
 .collage-image {
@@ -260,28 +290,23 @@
 	width: 20%;
 	left: 60%;
 	top: 10%;
-  animation: fadeIn 18s;
-  -webkit-animation: fadeIn 18s;
-  -moz-animation: fadeIn 18s;
-  -o-animation: fadeIn 18s;
-  -ms-animation: fadeIn 18s;
 }
 
 #img1 {
-  animation: fadeIn 18s;
-  -webkit-animation: fadeIn 18s;
-  -moz-animation: fadeIn 18s;
-  -o-animation: fadeIn 18s;
-  -ms-animation: fadeIn 18s;
+  animation: blueIn 27s;
+  -webkit-animation: blueIn 27s;
+  -moz-animation: blueIn 27s;
+  -o-animation: blueIn 27s;
+  -ms-animation: blueIn 27s;
 }
 
 #img2 {
 	left: 20%;
-  animation: fadeIn 18s;
-  -webkit-animation: fadeIn 18s;
-  -moz-animation: fadeIn 18s;
-  -o-animation: fadeIn 18s;
-  -ms-animation: fadeIn 18s;
+  animation: blueIn 27s;
+  -webkit-animation: blueIn 27s;
+  -moz-animation: blueIn 27s;
+  -o-animation: blueIn 27s;
+  -ms-animation: blueIn 27s;
 }
 
 #flower {
