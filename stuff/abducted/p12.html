@@ -1,0 +1,92 @@
+<!DOCTYPE html><head>
+<title></title>
+<link href="css/style2.css" rel="stylesheet" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Cutive+Mono&family=Shrikhand&display=swap" rel="stylesheet"> 
+</head>
+
+<div class="story">
+<p>
+<mark> It was sitting still and silent and I keep turning over old stones. As I was starting to doze off when out my window for some strange reason and I saw a triangle ufo in the Mystic ct hotel area. I wanted to know how if there were clues, hiden in the past that could guide me to her new home. Triangular shaped object with no lights. I want to see a <a href="p13.html">UFO</a>.</mark>
+</p>
+<div>
+
+<div class="sightings" id="top-sighting">At around 3:30 in the morning headed for Motorcycle Swap Meet in Long Beach,Ca I look up and saw a bright light traveling in a straight and possibly level path. I am submitting this because I heard that it might have been about 100 or so feet in the sky. noticed three stars forming a triangle just before a storm. Worth, TX,,red lights in the sky as I looked up and they were orange lights then a white star near it we were not on any drugs or alcahol. Noticed small streak of light on the right darting in the east begin to move north, 10 minutes later a military jet fighter this morning WOW!!!!!. Butterfly effect............lighted UFO. I was 9 I saw a light in the Eastern sky and disappearing behind mountains-no tail or aura present. light in the Eastern sky above Phoenix. blinding flash. They began to come straight towards us and changed the electricity of the air, but it was gliding and didnt make any sound, hovered and frequently criss crossed. At around 3:30 in the morning headed for Motorcycle Swap Meet in Long Beach,Ca I look up and saw a bright light traveling in a straight and possibly level path. I am submitting this because I heard that it might have been about 100 or so feet in the sky. noticed three stars forming a triangle just before a storm. Worth, TX,,red lights in the sky as I looked up and they were orange lights then a white star near it we were not on any drugs or alcahol. Noticed small streak of light on the right darting in the east begin to move north, 10 minutes later a military jet fighter this morning WOW!!!!!. Butterfly effect............lighted UFO. I was 9 I saw a light in the Eastern sky and disappearing behind mountains-no tail or aura present. light in the Eastern sky above Phoenix. blinding flash. They began to come straight towards us and changed the electricity of the air, but it was gliding and didnt make any sound, hovered and frequently criss crossed.
+</div>
+
+<div class="sightings" id="bottom-sighting">At around 3:30 in the morning headed for Motorcycle Swap Meet in Long Beach,Ca I look up and saw a bright light traveling in a straight and possibly level path. I am submitting this because I heard that it might have been about 100 or so feet in the sky. noticed three stars forming a triangle just before a storm. Worth, TX,,red lights in the sky as I looked up and they were orange lights then a white star near it we were not on any drugs or alcahol. Noticed small streak of light on the right darting in the east begin to move north, 10 minutes later a military jet fighter this morning WOW!!!!!. Butterfly effect............lighted UFO. I was 9 I saw a light in the Eastern sky and disappearing behind mountains-no tail or aura present. light in the Eastern sky above Phoenix. blinding flash. They began to come straight towards us and changed the electricity of the air, but it was gliding and didnt make any sound, hovered and frequently criss crossed. At around 3:30 in the morning headed for Motorcycle Swap Meet in Long Beach,Ca I look up and saw a bright light traveling in a straight and possibly level path. I am submitting this because I heard that it might have been about 100 or so feet in the sky. noticed three stars forming a triangle just before a storm. Worth, TX,,red lights in the sky as I looked up and they were orange lights then a white star near it we were not on any drugs or alcahol. Noticed small streak of light on the right darting in the east begin to move north, 10 minutes later a military jet fighter this morning WOW!!!!!. Butterfly effect............lighted UFO. I was 9 I saw a light in the Eastern sky and disappearing behind mountains-no tail or aura present. light in the Eastern sky above Phoenix. blinding flash. They began to come straight towards us and changed the electricity of the air, but it was gliding and didnt make any sound, hovered and frequently criss crossed.
+</div>
+	
+<iframe src="p1.html" class="site" id="site-1"></iframe>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.5.js"></script>
+<script>
+    (function($) {
+        $.fn.textWidth = function(){
+             var calc = '<span style="display:none">' + $(this).text() + '</span>';
+             $('body').append(calc);
+             var width = $('body').find('span:last').width();
+             $('body').find('span:last').remove();
+            return width;
+        };
+        
+        $.fn.marquee = function(args) {
+            var that = $(this);
+            var textWidth = that.textWidth(),
+                offset = that.width(),
+                width = offset,
+                css = {
+                    'text-indent' : that.css('text-indent'),
+                    'overflow' : that.css('overflow'),
+                    'white-space' : that.css('white-space')
+                },
+                marqueeCss = {
+                    'text-indent' : width,
+                    'overflow' : 'hidden',
+                    'white-space' : 'nowrap'
+                },
+                args = $.extend(true, { count: -1, speed: 1e-2, leftToRight: false }, args),
+                i = 0,
+                stop = textWidth*-1  - 100000,
+                dfd = $.Deferred();
+            
+            function go() {
+                if(!that.length) return dfd.reject();
+                if(width == stop) {
+                    i++;
+                    if(i == args.count) {
+                        that.css(css);
+                        return dfd.resolve();
+                    }
+                    if(args.leftToRight) {
+                        width = textWidth*-1;
+                    } else {
+                        width = offset;
+                    }
+                }
+                that.css('text-indent', width + 'px');
+                if(args.leftToRight) {
+                    width++;
+                } else {
+                    width--;
+                }
+                setTimeout(go, args.speed);
+            };
+            if(args.leftToRight) {
+                width = textWidth*-1;
+                width++;
+                stop = offset;
+            } else {
+                width--;            
+            }
+            that.css(marqueeCss);
+            go();
+            return dfd.promise();
+        };
+    })(jQuery);
+
+$('.sightings').marquee();
+$('.sightings').marquee();
+	
+</script>

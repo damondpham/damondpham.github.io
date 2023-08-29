@@ -1,0 +1,94 @@
+<!DOCTYPE html><head>
+<title></title>
+<link href="css/style2.css" rel="stylesheet" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Cutive+Mono&family=Shrikhand&display=swap" rel="stylesheet"> 
+</head>
+
+
+<div class="sightings" id="sighting3">
+	OK so i was up my boyfriend was asleep and i cant figure out what artificial aircraft is so ........... Seen UFO with my camcorder.The footage I got was very clear.A saucer shaped object in the sky about 3 hundred feet off of pavement, passed by my living room window facing due west. First thought I observed a large orange ball with no tails no sound no air movement and it moved too quickly to be a very bright light, large, no defined edges, no sound,changed directions. Witnessed with a friend, and her date were outside and I saw an object with a star separated blinking which got my attention by the reflection of the sun. 
+</div>
+
+<a href="p8.html"><img src="images/birds2.png" alt="birds" class="collage-image" id="img1" onMouseOver="MouseRollover(this)" onMouseOut="MouseOut(this)"/></a>
+
+<script language="javascript">
+    function MouseRollover(MyImage) {
+        MyImage.src = "images/birds1.png";
+    }
+        function MouseOut(MyImage) {
+        MyImage.src = "images/birds2.png";
+    }
+</script>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.5.js"></script>
+<script>
+    (function($) {
+        $.fn.textWidth = function(){
+             var calc = '<span style="display:none">' + $(this).text() + '</span>';
+             $('body').append(calc);
+             var width = $('body').find('span:last').width();
+             $('body').find('span:last').remove();
+            return width;
+        };
+        
+        $.fn.marquee = function(args) {
+            var that = $(this);
+            var textWidth = that.textWidth(),
+                offset = that.width(),
+                width = offset,
+                css = {
+                    'text-indent' : that.css('text-indent'),
+                    'overflow' : that.css('overflow'),
+                    'white-space' : that.css('white-space')
+                },
+                marqueeCss = {
+                    'text-indent' : width,
+                    'overflow' : 'hidden',
+                    'white-space' : 'nowrap'
+                },
+                args = $.extend(true, { count: -1, speed: 1e-2, leftToRight: false }, args),
+                i = 0,
+                stop = textWidth*-1  - 100000,
+                dfd = $.Deferred();
+            
+            function go() {
+                if(!that.length) return dfd.reject();
+                if(width == stop) {
+                    i++;
+                    if(i == args.count) {
+                        that.css(css);
+                        return dfd.resolve();
+                    }
+                    if(args.leftToRight) {
+                        width = textWidth*-1;
+                    } else {
+                        width = offset;
+                    }
+                }
+                that.css('text-indent', width + 'px');
+                if(args.leftToRight) {
+                    width++;
+                } else {
+                    width--;
+                }
+                setTimeout(go, args.speed);
+            };
+            if(args.leftToRight) {
+                width = textWidth*-1;
+                width++;
+                stop = offset;
+            } else {
+                width--;            
+            }
+            that.css(marqueeCss);
+            go();
+            return dfd.promise();
+        };
+    })(jQuery);
+
+$('.sightings').marquee();
+$('.sightings').marquee();
+	
+</script>

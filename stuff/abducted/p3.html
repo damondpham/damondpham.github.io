@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="css/style1.css" rel="stylesheet" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Cutive+Mono&family=Shrikhand&display=swap" rel="stylesheet"> 
+</head>
+<body>
+
+<div class="sightings" id="sightings-p1"></div>
+
+<div class="story">
+<p>
+On the plane ride back, I stared at the brochure the organizers had given us. On its cover was a martian with a blown-up head, a purple galaxy Photoshopped across its bug eyes. I looked out the window and imagined my daughter doing the same, watching mountains or crop circles blur past <a href="p4.html">her</a>. 
+</p>
+</div>
+
+<img src="images/plane.png" class="img_a" alt="plane"/>
+<img src="images/cropcircles.jpg" class="img_b" alt="cropcircles"/>
+
+</body>
+</html>
+
+<script>	
+	var sightings = ['We have video tape of three nights, so far, of slowly moving,color changing light',
+					 'Strange movements inconsistent with Conventional A/C. Orb of light changed directions rapidly',
+					 'MISSOURI INVESTIGATORS GROUP Report: It appeared to be red balloons but was clearly not due to the sun',
+					 'was setting so it stood out.by the tim. I was in my room watching tv when I looked up',
+					 'Could not see anything but we heard it - it was a bright light in Southern Wisconsin sky.',
+					 'in the garden at a cabin on the ridge overlooking Lake Superior just outside Grand Marais, Minnesota.'];
+
+	var rep = 0;
+	textSequence(0);
+	
+	function textSequence(i) {
+		
+		//Show the story after all sightings have been shown.
+		if (i == 1) {
+			if (rep > 0) {
+				document.getElementsByClassName("story")[0].style.display = "inherit";
+			}
+		}
+		
+		//Cycle through the sightings.
+		if (sightings.length > i) {
+			setTimeout(function() {
+				document.getElementById("sightings-p1").innerHTML = sightings[i];
+				textSequence(++i);
+			}, 3000); //Time in milliseconds.
+
+		} else if (sightings.length == i) { 
+			rep += 1;
+			textSequence(0);
+		}
+
+	}
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html><head>
+<title></title>
+<link href="css/style2.css" rel="stylesheet" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Cutive+Mono&family=Shrikhand&display=swap" rel="stylesheet"> 
+</head>
+
+<div class="story" id="story-p9">Two fireballs on the night of 10/28/06 my girl friend car record,she was sitting in <a href="p12.html">my missing daughters room</a>, contemplating where she might be..;..the.</div>
+
+<div class="sightings" id="sighting7"></div>
+
+<iframe src="https://docs.google.com/viewer?url=www.thelightside.org/PDFbooklet.pdf&embedded=true"  class="site" id="site-2" scrolling="no"></iframe>
+
+<img src="images/mars2.jpg" alt="mars map" class="collage-image" id="flower2"/>
+
+<script>	
+	var sightings = ['After she was satisfied with the birds we continued to walk home.',
+	'We discussed the prospect of beginning piano lessons.',
+	'It was something I wanted for her, but she disagreed,',
+	'citing Star Trek as a more urgent priority for Sunday afternoons.'];
+
+	var rep = 0;
+	textSequence(0);
+	
+	function textSequence(i) {
+		
+		//Show the story after all sightings have been shown.
+		if (i == 1) {
+			if (rep > 0) {
+				document.getElementsByClassName("story")[0].style.display = "inherit";
+			}
+		}
+		
+		//Cycle through the sightings.
+		if (sightings.length > i) {
+			setTimeout(function() {
+				document.getElementById("sighting7").innerHTML = sightings[i];
+				textSequence(++i);
+			}, 2000); //Time in milliseconds.
+
+		} else if (sightings.length == i) { 
+			rep += 1;
+			textSequence(0);
+		}
+
+	}
+</script>

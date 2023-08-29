@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="css/style1.css" rel="stylesheet" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Cutive+Mono&family=Shrikhand&display=swap" rel="stylesheet"> 
+</head>
+<body>
+
+<div class="sightings" id="sightings-p1"></div>
+
+<div class="story">
+<p>
+Of course, that did nothing to console me. I immediately reported the incident to the police, but they refused to entertain the idea that aliens had visited us. So I took initiative and began researching myself. I became a frequent presence on theblackvault.com and other alien sightings forums. I never spoke about what happened to my daughter due to concern for my own privacy, but I followed each major report, trying to tease out the patterns or trends that might explain where she was taken.
+</p>
+<p>
+I even flew to an extraterrestrial convention in Hawaii. In my purse I packed a portfolio of materials on alien abductions similar to my daughter's, hoping to find someone to discuss them with. I was severely disappointed: the other attendees were more keen on purchasing T-shirts than working out theories. I tried to clear my mind by visiting the beach, but found it infested with jellyfish. The whole incident made me feel horribly sick and I left the convention <a href="p3.html">early</a>.
+</p>
+</div>
+
+<img src="images/jellies.png" class="img_a" alt="jellyfish"/>
+<img src="images/palm_trees.png" class="img_b" alt="palm trees"/>
+
+</body>
+</html>
+
+<script>	
+	var sightings = ['Teardrop shaped lights over Oshawa Airport.',
+					'While parked in front of me at a very high speed and it was gone.',
+					'A strobing sphere on the ground a few feet from the surface of the sea.',
+					'Silent, metallic Grey, Bell shaped object emiting bright light from nowhere, awakened me from sleep',
+					'3 triangular shaped ufos over an empty field in Riverside, CA with beams of lig.',
+					'Bright light hovering over the horizon and a small child'
+					];
+
+	var rep = 0;
+	textSequence(0);
+	
+	function textSequence(i) {
+		
+		//Show the story after all sightings have been shown.
+		if (i == 1) {
+			if (rep > 0) {
+				document.getElementsByClassName("story")[0].style.display = "inherit";
+			}
+		}
+		
+		//Cycle through the sightings.
+		if (sightings.length > i) {
+			setTimeout(function() {
+				document.getElementById("sightings-p1").innerHTML = sightings[i];
+				textSequence(++i);
+			}, 3000); //Time in milliseconds.
+
+		} else if (sightings.length == i) { 
+			rep += 1;
+			textSequence(0);
+		}
+
+	}
+</script>
