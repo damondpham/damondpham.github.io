@@ -67,6 +67,7 @@ p {
 .barcode {
 	font-family: 'Libre Barcode 128 Text', monospace;
 	font-size: 1.85em;
+	padding: 0em 0em 0em .1em;
 }
 
 input {
