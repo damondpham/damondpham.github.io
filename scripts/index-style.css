@@ -55,13 +55,13 @@ p {
 	font-weight: 500;
   font-optical-sizing: auto;
   font-style: normal;
-	font-size: min(6.5vw, 1.8em);
+	font-size: min(7vw, 1.8em);
 }
 
 .barcode {
 	font-family: 'Libre Barcode 128 Text', monospace;
-	font-size: min(6.2vw, 1.8em);
-	padding: max(.35em, 1.2vh) 0em 0em .05em;
+	font-size: min(6.2vw, 1.7em);
+	padding: max(.5em, 1vh) 0em 0em .05em;
 }
 
 a {
