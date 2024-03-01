@@ -38,12 +38,12 @@ body {
 .left {
 	font-size: 1.05em;
 	padding-left: 2%;
-	padding-top: 0.5%;
+	padding-top: .8%;
 }
 
 .right {
 	display: block;
-	margin: 15vh 12vw 0% 28vw;
+	margin: 15vh 12vw 0% 25vw;
 	padding: 0%;
 	line-height: 1.5em;
 	font-size: 1.2em;
