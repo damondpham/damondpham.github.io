@@ -11,7 +11,7 @@ body {
 	background: #fefefd;
 	font: black;
 	display: table;
-	font-size: 1.1em;
+	font-size: max(2.65vh, 1.05em);
   font-family: "EB Garamond", serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -33,12 +33,6 @@ body {
 
 .split {
 	position: absolute;
-}
-
-.left {
-	font-size: 1.05em;
-	padding-left: 2%;
-	padding-top: .8%;
 }
 
 .right {
@@ -66,7 +60,7 @@ p {
 
 .barcode {
 	font-family: 'Libre Barcode 128 Text', monospace;
-	font-size: 1.85em;
+	font-size: 1.7em;
 	padding: 0em 0em 0em .05em;
 }
 
