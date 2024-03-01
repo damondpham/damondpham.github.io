@@ -1,6 +1,6 @@
 html {
 	overflow-x: hidden;
-	cursor: crosshair;
+	/* cursor: crosshair; */
 	top: 0;
     left: 0;
     right: 0;
@@ -8,15 +8,17 @@ html {
 }
 
 body {
-	background: white;
+	background: #fefefd;
 	font: black;
 	display: table;
-	font-size: 1.12em;
-	font-family: 'Open Sans', sans-serif;
+	font-size: 1.2em;
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 ::selection {
-	background: #22a975;
+	background: #aca9a4;
 }
 
 #scanner {
@@ -34,15 +36,17 @@ body {
 }
 
 .left {
+	font-size: 1.1em;
 	padding-left: 2%;
 	padding-top: 0.5%;
 }
 
 .right {
 	display: block;
-	margin: 4.4% 0% 0% 26%;
-	padding: 0.5% 5% 0% 0%;
-	line-height: 1.6em;
+	margin: 15vh 12vw 0% 28vw;
+	padding: 0%;
+	line-height: 1.5em;
+	font-size: 1.2em;
 }
 
 p {
@@ -53,12 +57,16 @@ p {
 }
 
 .corner {
-	font-size: 1.75em;
+  font-family: "Poltawski Nowy", serif;
+	font-weight: bold;
+  font-optical-sizing: auto;
+  font-style: normal;
+	font-size: 1.7em;
 }
 
 .barcode {
 	font-family: 'Libre Barcode 128 Text', monospace;
-	font-size: 2em;
+	font-size: 1.7em;
 }
 
 input {
@@ -69,7 +77,7 @@ input {
 	font: inherit;
 	color: #152fac;
 	/*border-bottom:1px solid #00ffff; */
-	cursor: crosshair;
+	/* cursor: crosshair; */
 }
 
 input:focus {
@@ -78,18 +86,28 @@ input:focus {
 }
 
 .toggles {
-	font-size: 1em;
+	font-size: 1.25em;
+  font-family: "Poltawski Nowy", serif;
 }
 
 a {
-	color: white;
-	background-color: #152fac;
+	color: #152fac;
 	text-decoration: none;
+	-webkit-transition: color 25s ease, text-shadow 52s ease;
+	-moz-transition: color 25s ease, text-shadow 52s ease;
+	-o-transition: color 25s ease, text-shadow 52s ease;
+	transition: color 25s ease, text-shadow 52s ease;
 }
 
 a:hover {
-	background-color: #e18c54;
-	cursor: crosshair;
+	/* cursor: crosshair; */
+	/* font-weight: 700; */
+	color: #ffffff;
+	text-shadow: 0px 0px 2px #aca9a4, 0px 0px 3px #aca9a4, 0px 0px 5px #aca9a4, 0px 0px 8px #aca9a4, 0px 0px 12px #aca9a4, 0px 0px 17px;
+	-webkit-transition: color 27s ease, text-shadow 18s ease;
+	-moz-transition: color 27s ease, text-shadow 18s ease;
+	-o-transition: color 27s ease, text-shadow 18s ease;
+	transition: color 27s ease, text-shadow 18s ease;
 }
 
 mark {
