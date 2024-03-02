@@ -138,7 +138,7 @@ a:hover {
 
 .sub {
 	margin-left: 1.7em;
-	max-width: max(120vh, 80vw);
+	max-width: max(120vh, 65vw);
 	color:#2b2bd4; 
 	font-size:.7em;
 	line-height: 110%;
