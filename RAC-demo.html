@@ -79,7 +79,7 @@
 <script>
   // Function to load the text file and display its content in the div
   function loadTextFile() {
-      fetch('Layer1.txt') 
+      fetch('stuff/RAC-demo/Layer1.txt') 
           .then(response => response.text()) 
           .then(data => {
               document.getElementById('l1text').innerText = data;
@@ -88,7 +88,7 @@
               document.getElementById('l1text').innerText = 'Error loading text file: ' + error;
           });
 
-      fetch('Layer2.txt') 
+      fetch('stuff/RAC-demo/Layer2.txt') 
           .then(response => response.text()) 
           .then(data => {
               document.getElementById('l2text').innerText = data;
