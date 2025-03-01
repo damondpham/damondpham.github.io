@@ -12,7 +12,7 @@ body {
 	font: black;
 	display: table;
 	font-size: max(2.6vh, 1em);
-  font-family: "EB Garamond", serif;
+  font-family: "Nanum Myeongjo", serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
@@ -59,7 +59,7 @@ p {
 }
 
 .barcode {
-	font-family: 'Libre Barcode 128 Text', monospace;
+	font-family: 'Nanum Myeongjo', serif;
 	font-size: min(6.4vw, 1.7em);
 	padding: max(.42em, 2.2vh) 0em 0em .05em;
 }
