@@ -67,10 +67,10 @@ p {
 a {
 	color: #152fac;
 	text-decoration: none;
-	-webkit-transition: color 999s ease, text-shadow 150s ease;
-	-moz-transition: color 999s ease, text-shadow 150s ease;
-	-o-transition: color 999s ease, text-shadow 150s ease;
-	transition: color 999s ease, text-shadow 150s ease;
+	-webkit-transition: color 17s ease, text-shadow 36s ease;
+	-moz-transition: color 17s ease, text-shadow 36s ease;
+	-o-transition: color 17s ease, text-shadow 36s ease;
+	transition: color 17s ease, text-shadow 36s ease;
 }
 
 a:hover {
